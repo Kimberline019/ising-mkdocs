@@ -1,0 +1,12 @@
+site_name: Modelo de Ising Cuático 
+theme:
+  name: material
+
+
+nav:
+  -Inicio: index.md
+  -Código: codigo.md
+  -Resultados: resultados.md
+
+repo_url: https://github.com/Kimberline019/ising-proyecto.git
+
