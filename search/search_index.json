@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Bienvenido","text":"<p>En este proyecto se implementa el modelo de Ising Cu\u00e1ntico en una grilla con N espines.</p> <p>Secciones: -Implementaci\u00f3n en python  -Implementaci\u00f3n en C++</p>"}]}
