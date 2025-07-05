@@ -1,12 +1,19 @@
-site_name: Modelo de Ising Cuático 
+site_name: Modelo de Ising Cuántico
+
+nav:
+  - Inicio: index.md
+  - Código: codigo.md
+  - Resultados: resultados.md
+
 theme:
   name: material
 
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
 
-nav:
-  -Inicio: index.md
-  -Código: codigo.md
-  -Resultados: resultados.md
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-repo_url: https://github.com/Kimberline019/ising-proyecto.git
 
