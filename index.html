@@ -296,64 +296,100 @@
 
 
 <h1 id="bienvenido">Bienvenido</h1>
-<h1 id="modelo-de-ising-cuantico">Modelo de Ising Cuántico</h1>
-<p>El modelo de Ising cuántico unidimensional es un sistema fundamental en física de muchos cuerpos y teoría cuántica de espines. Este modelo describe una cadena de <span class="arithmatex">\( N \)</span> espines interactuando con sus vecinos más cercanos y con un campo magnético transversal.</p>
-<h2 id="objetivo">Objetivo</h2>
-<p>Estudiar la evolución temporal del estado cuántico <span class="arithmatex">\( \mid \psi(t) \rangle \)</span> gobernado por la ecuación de Schrödinger:</p>
+<h1 id="modelo-de-ising-cuantico-unidimensional-en-una-grilla-de-n-espines">Modelo de Ising cuántico unidimensional en una grilla de <span class="arithmatex">\( N \)</span> espines</h1>
+<p>El <strong>modelo de Ising cuántico</strong> es una extensión natural del <strong>modelo de Ising clásico</strong>, uno de los más simples y famosos para describir <strong>materiales magnéticos</strong>, propuesto por Ernst Ising en 1925.</p>
+<p>Para el modelo clásico, se tiene una red donde cada punto contiene un espín que puede tomar solo dos valores <span class="arithmatex">\( s_i = \pm1 \)</span>. El sistema busca minimizar su energía total dependiendo de cómo interactúan los espines. Para medir la energía total de una configuración se usa el siguiente <strong>Hamiltoniano clásico</strong>:</p>
 <div class="arithmatex">\[
-\mid \psi(t) \rangle = e^{-iHt} \mid \psi(0) \rangle
+H = -J \sum_{\langle i, j\rangle} s_i s_j - h \sum_{i} s_i
 \]</div>
-<p>donde <span class="arithmatex">\( H \)</span> es el Hamiltoniano del sistema.</p>
-<h2 id="hamiltoniano-del-modelo">Hamiltoniano del modelo</h2>
-<p>El Hamiltoniano del modelo de Ising cuántico unidimensional con campo transversal se escribe como:</p>
-<div class="arithmatex">\[
-H = -J \sum_{i=1}^{N-1} \sigma^z_i \sigma^z_{i+1} - h \sum_{i=1}^{N} \sigma^x_i
-\]</div>
-<p>donde:</p>
+<p>Donde:</p>
 <ul>
-<li><span class="arithmatex">\( \sigma^z_i \)</span> y <span class="arithmatex">\( \sigma^x_i \)</span> son matrices de Pauli que actúan sobre el espín <span class="arithmatex">\( i \)</span>,</li>
-<li><span class="arithmatex">\( J \)</span> representa la constante de acoplamiento (interacción entre espines vecinos),</li>
-<li><span class="arithmatex">\( h \)</span> representa la intensidad del campo magnético transversal.</li>
+<li><span class="arithmatex">\( s_i = \pm 1 \)</span> es el espín clásico en el sitio <span class="arithmatex">\( i \)</span>,</li>
+<li><span class="arithmatex">\( J \)</span> es la constante de acoplamiento:</li>
+<li><span class="arithmatex">\( J &gt; 0 \)</span>: favorece que los espines se alineen (<strong>ferromagnetismo</strong>),</li>
+<li><span class="arithmatex">\( J &lt; 0 \)</span>: favorece que se desalineen (<strong>antiferromagnetismo</strong>),</li>
+<li><span class="arithmatex">\( h \)</span> es el campo magnético externo clásico.</li>
 </ul>
-<h2 id="matrices-de-pauli">Matrices de Pauli</h2>
-<p>Las matrices de Pauli son operadores <span class="arithmatex">\( 2 \times 2 \)</span> fundamentales que actúan sobre espines individuales:</p>
+<hr />
+<h2 id="hamiltoniano-del-modelo-cuantico">Hamiltoniano del modelo cuántico</h2>
+<p>El <strong>modelo de Ising cuántico</strong> permite estudiar el comportamiento colectivo de muchos espines cuánticos en una red, donde los espines pueden interactuar entre sí <span class="arithmatex">\( \text{(alinearse o desalinearse)} \)</span>. El <strong>Hamiltoniano del modelo cuántico 1D con campo transversal</strong> (perpendicular al eje de los espines) es:</p>
 <div class="arithmatex">\[
-\sigma^x = 
+\hat{H} = -J\sum_{i=1}^{N-1} \hat{\sigma}_{i}^{z} \hat{\sigma}_{i + 1}^z - g \sum_{i = 1}^N \hat{\sigma}_{i}^x
+\]</div>
+<p>Donde:</p>
+<ul>
+<li><span class="arithmatex">\( J \)</span>: escala energética de la interacción ferromagnética,</li>
+<li><span class="arithmatex">\( g \)</span>: intensidad del campo transversal cuántico,</li>
+<li><span class="arithmatex">\( \hat{\sigma}_{i}^{z} \)</span>: matriz de Pauli-Z que mide si un espín está en <span class="arithmatex">\( \uparrow \)</span> o <span class="arithmatex">\( \downarrow \)</span>,</li>
+<li><span class="arithmatex">\( \hat{\sigma}_{i}^{x} \)</span>: matriz de Pauli-X que representa la posibilidad de cambio de estado <span class="arithmatex">\( \left(\uparrow \leftrightarrow \downarrow \right) \)</span>.</li>
+</ul>
+<hr />
+<h2 id="matrices-de-pauli">Matrices de Pauli</h2>
+<div class="arithmatex">\[
+\sigma_x =
 \begin{pmatrix}
 0 &amp; 1 \\
 1 &amp; 0
-\end{pmatrix},
-\quad
-\sigma^y = 
+\end{pmatrix}, \quad
+\sigma_y =
 \begin{pmatrix}
 0 &amp; -i \\
 i &amp; 0
-\end{pmatrix},
-\quad
-\sigma^z = 
+\end{pmatrix}, \quad
+\sigma_z =
 \begin{pmatrix}
 1 &amp; 0 \\
 0 &amp; -1
-\end{pmatrix}
-\]</div>
-<p>También se utiliza la <strong>matriz identidad</strong>:</p>
-<div class="arithmatex">\[
-I = 
+\end{pmatrix}, \quad
+I =
 \begin{pmatrix}
 1 &amp; 0 \\
 0 &amp; 1
 \end{pmatrix}
 \]</div>
-<h2 id="observables-relevantes">Observables relevantes</h2>
-<p>Podemos estudiar:</p>
-<h3 id="magnetizacion-total">Magnetización total</h3>
+<hr />
+<h2 id="interpretacion-fisica-del-hamiltoniano">Interpretación física del Hamiltoniano</h2>
+<p><strong>Primer término</strong> <span class="arithmatex">\( \hat{\sigma}_{i}^{z} \hat{\sigma}_{i+1}^{z} \)</span>:
+- Representa la interacción entre espines vecinos.
+- Si están alineados <span class="arithmatex">\( (\uparrow\uparrow \text{ o } \downarrow\downarrow) \)</span>, da baja energía.
+- Si están opuestos <span class="arithmatex">\( (\uparrow\downarrow \text{ o } \downarrow\uparrow) \)</span>, da mayor energía.</p>
+<p><strong>Segundo término</strong> <span class="arithmatex">\( \hat{\sigma}_{i}^x \)</span>:
+- Representa la acción de un campo en la dirección <span class="arithmatex">\( x \)</span>,
+- Introduce <strong>fluctuaciones cuánticas</strong> que permiten que los espines cambien de estado.</p>
+<hr />
+<h2 id="competencia-entre-orden-y-fluctuacion">Competencia entre orden y fluctuación</h2>
+<ul>
+<li>Cuando <span class="arithmatex">\( h = 0 \)</span>: sólo hay interacción entre espines → tienden a estar <strong>alineados</strong> → estado <strong>ferromagnético</strong>.</li>
+<li>Cuando <span class="arithmatex">\( J = 0 \)</span>: los espines siguen solo el campo externo → actúan <strong>independientemente</strong> → estado <strong>paramagnético</strong>.</li>
+<li>Cuando <span class="arithmatex">\( h \sim J \)</span>: hay un equilibrio → aparece una <strong>transición cuántica de fase</strong>.</li>
+</ul>
+<hr />
+<h2 id="representacion-en-mecanica-cuantica">Representación en mecánica cuántica</h2>
+<p>Cada espín vive en un espacio de dimensión 2 ( <span class="arithmatex">\( \uparrow \)</span> o <span class="arithmatex">\( \downarrow \)</span> ). Una cadena de <span class="arithmatex">\( N \)</span> espines tiene un espacio de estados de dimensión <span class="arithmatex">\( 2^N \)</span>. Por ejemplo:</p>
+<ul>
+<li><span class="arithmatex">\( N = 1 \)</span>: estados = <span class="arithmatex">\( \{ \uparrow, \downarrow \} \)</span></li>
+<li><span class="arithmatex">\( N = 2 \)</span>: estados = <span class="arithmatex">\( \{ \uparrow\uparrow, \uparrow\downarrow, \downarrow\uparrow, \downarrow\downarrow \} \)</span></li>
+<li><span class="arithmatex">\( N = 3 \)</span>: estados = <span class="arithmatex">\( \{ \uparrow\uparrow\uparrow, \uparrow\uparrow\downarrow, \ldots, \downarrow\downarrow\downarrow \} \Rightarrow 8 \)</span> posibles</li>
+</ul>
+<p>El Hamiltoniano es entonces una <strong>matriz de dimensión <span class="arithmatex">\( 2^N \times 2^N \)</span></strong> que describe todas las interacciones posibles del sistema.</p>
+<hr />
+<h2 id="dinamica-cuantica">Dinámica cuántica</h2>
+<p>A diferencia del modelo clásico, en el modelo cuántico el Hamiltoniano también <strong>describe la evolución temporal</strong> del estado del sistema:</p>
 <div class="arithmatex">\[
-\langle \psi(t) \mid \sum_i \sigma^z_i \mid \psi(t) \rangle
+i\hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle
 \]</div>
-<h3 id="correlacion-entre-espines">Correlación entre espines</h3>
+<p>La solución de esta ecuación es:</p>
 <div class="arithmatex">\[
-\langle \psi(t) \mid \sigma^z_i \sigma^z_j \mid \psi(t) \rangle
+|\psi(t)\rangle = e^{-i\hat{H}t/\hbar} |\psi(0)\rangle
 \]</div>
+<p>Este formalismo permite estudiar:</p>
+<ul>
+<li>Dinámica de espines y correlaciones en el tiempo,</li>
+<li>Entrelazamiento cuántico,</li>
+<li>
+<h2 id="simulacion-cuantica-de-materiales-y-algoritmos-cuanticos">Simulación cuántica de materiales y algoritmos cuánticos.</h2>
+</li>
+</ul>
 <hr />
 <h2 id="implementacion-numerica">Implementación numérica</h2>
 <p>Para implementar este modelo en código (por ejemplo, en C++), es necesario:</p>
