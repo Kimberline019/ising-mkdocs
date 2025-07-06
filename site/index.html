@@ -10,6 +10,8 @@
       
       
       
+        <link rel="next" href="codigo/">
+      
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
@@ -222,7 +224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="codigo.md" class="md-nav__link">
+      <a href="codigo/" class="md-nav__link">
         
   
   
@@ -244,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="resultados.md" class="md-nav__link">
+      <a href="resultados/" class="md-nav__link">
         
   
   
@@ -294,10 +296,75 @@
 
 
 <h1 id="bienvenido">Bienvenido</h1>
-<p>En este proyecto se implementa el modelo de Ising Cuántico en una grilla con N espines.</p>
-<p>Secciones:
--Implementación en python 
--Implementación en C++</p>
+<h1 id="modelo-de-ising-cuantico">Modelo de Ising Cuántico</h1>
+<p>El modelo de Ising cuántico unidimensional es un sistema fundamental en física de muchos cuerpos y teoría cuántica de espines. Este modelo describe una cadena de <span class="arithmatex">\( N \)</span> espines interactuando con sus vecinos más cercanos y con un campo magnético transversal.</p>
+<h2 id="objetivo">Objetivo</h2>
+<p>Estudiar la evolución temporal del estado cuántico <span class="arithmatex">\( \mid \psi(t) \rangle \)</span> gobernado por la ecuación de Schrödinger:</p>
+<div class="arithmatex">\[
+\mid \psi(t) \rangle = e^{-iHt} \mid \psi(0) \rangle
+\]</div>
+<p>donde <span class="arithmatex">\( H \)</span> es el Hamiltoniano del sistema.</p>
+<h2 id="hamiltoniano-del-modelo">Hamiltoniano del modelo</h2>
+<p>El Hamiltoniano del modelo de Ising cuántico unidimensional con campo transversal se escribe como:</p>
+<div class="arithmatex">\[
+H = -J \sum_{i=1}^{N-1} \sigma^z_i \sigma^z_{i+1} - h \sum_{i=1}^{N} \sigma^x_i
+\]</div>
+<p>donde:</p>
+<ul>
+<li><span class="arithmatex">\( \sigma^z_i \)</span> y <span class="arithmatex">\( \sigma^x_i \)</span> son matrices de Pauli que actúan sobre el espín <span class="arithmatex">\( i \)</span>,</li>
+<li><span class="arithmatex">\( J \)</span> representa la constante de acoplamiento (interacción entre espines vecinos),</li>
+<li><span class="arithmatex">\( h \)</span> representa la intensidad del campo magnético transversal.</li>
+</ul>
+<h2 id="matrices-de-pauli">Matrices de Pauli</h2>
+<p>Las matrices de Pauli son operadores <span class="arithmatex">\( 2 \times 2 \)</span> fundamentales que actúan sobre espines individuales:</p>
+<div class="arithmatex">\[
+\sigma^x = 
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix},
+\quad
+\sigma^y = 
+\begin{pmatrix}
+0 &amp; -i \\
+i &amp; 0
+\end{pmatrix},
+\quad
+\sigma^z = 
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{pmatrix}
+\]</div>
+<p>También se utiliza la <strong>matriz identidad</strong>:</p>
+<div class="arithmatex">\[
+I = 
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+\]</div>
+<h2 id="observables-relevantes">Observables relevantes</h2>
+<p>Podemos estudiar:</p>
+<h3 id="magnetizacion-total">Magnetización total</h3>
+<div class="arithmatex">\[
+\langle \psi(t) \mid \sum_i \sigma^z_i \mid \psi(t) \rangle
+\]</div>
+<h3 id="correlacion-entre-espines">Correlación entre espines</h3>
+<div class="arithmatex">\[
+\langle \psi(t) \mid \sigma^z_i \sigma^z_j \mid \psi(t) \rangle
+\]</div>
+<hr />
+<h2 id="implementacion-numerica">Implementación numérica</h2>
+<p>Para implementar este modelo en código (por ejemplo, en C++), es necesario:</p>
+<ul>
+<li>Representar las matrices de Pauli y la Identidad como matrices <code>2x2</code>.</li>
+<li>Usar el producto tensorial para construir las matrices que actúan sobre el espacio completo de dimensión <span class="arithmatex">\( 2^N \)</span>.</li>
+<li>Construir el Hamiltoniano sumando los términos de interacción y campo.</li>
+<li>Diagonalizar el Hamiltoniano para obtener autovalores y autovectores.</li>
+<li>Evolucionar el estado en el tiempo con <span class="arithmatex">\( e^{-iHt} \mid \psi(0) \rangle \)</span>.</li>
+</ul>
+<p>Este procedimiento es <strong>computacionalmente costoso</strong> para <span class="arithmatex">\( N &gt; 10 \)</span>, por lo que se aplica principalmente a sistemas pequeños.</p>
 
 
 
