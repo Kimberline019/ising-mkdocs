@@ -6,7 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Documentación del proyecto de simulación cuántica en una cadena de espines">
       
+      
+      
+        <link rel="canonical" href="https://Kimberline019.github.io/ising-mkdocs/">
       
       
       
@@ -23,6 +27,9 @@
     
     
       <link rel="stylesheet" href="assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -51,7 +58,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -72,9 +84,7 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Modelo de Ising Cuántico" class="md-header__button md-logo" aria-label="Modelo de Ising Cuántico" data-md-component="logo">
       
@@ -103,8 +113,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -158,6 +168,74 @@
       
         
           
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="codigo/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Código
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="resultados/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resultados
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -171,8 +249,10 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Modelo de Ising Cuántico" class="md-nav__button md-logo" aria-label="Modelo de Ising Cuántico" data-md-component="logo">
       
@@ -295,8 +375,8 @@
 
 
 
-<h1 id="bienvenido">Bienvenido</h1>
-<h1 id="modelo-de-ising-cuantico-unidimensional-en-una-grilla-de-n-espines">Modelo de Ising cuántico unidimensional en una grilla de <span class="arithmatex">\( N \)</span> espines</h1>
+<h1 id="bienvenido">Bienvenido<a class="headerlink" href="#bienvenido" title="Permanent link">&para;</a></h1>
+<h1 id="modelo-de-ising-cuantico-unidimensional-en-una-grilla-de-n-espines">Modelo de Ising cuántico unidimensional en una grilla de <span class="arithmatex">\( N \)</span> espines<a class="headerlink" href="#modelo-de-ising-cuantico-unidimensional-en-una-grilla-de-n-espines" title="Permanent link">&para;</a></h1>
 <p>El <strong>modelo de Ising cuántico</strong> es una extensión natural del <strong>modelo de Ising clásico</strong>, uno de los más simples y famosos para describir <strong>materiales magnéticos</strong>, propuesto por Ernst Ising en 1925.</p>
 <p>Para el modelo clásico, se tiene una red donde cada punto contiene un espín que puede tomar solo dos valores <span class="arithmatex">\( s_i = \pm1 \)</span>. El sistema busca minimizar su energía total dependiendo de cómo interactúan los espines. Para medir la energía total de una configuración se usa el siguiente <strong>Hamiltoniano clásico</strong>:</p>
 <div class="arithmatex">\[
@@ -311,7 +391,7 @@ H = -J \sum_{\langle i, j\rangle} s_i s_j - h \sum_{i} s_i
 <li><span class="arithmatex">\( h \)</span> es el campo magnético externo clásico.</li>
 </ul>
 <hr />
-<h2 id="hamiltoniano-del-modelo-cuantico">Hamiltoniano del modelo cuántico</h2>
+<h2 id="hamiltoniano-del-modelo-cuantico">Hamiltoniano del modelo cuántico<a class="headerlink" href="#hamiltoniano-del-modelo-cuantico" title="Permanent link">&para;</a></h2>
 <p>El <strong>modelo de Ising cuántico</strong> permite estudiar el comportamiento colectivo de muchos espines cuánticos en una red, donde los espines pueden interactuar entre sí <span class="arithmatex">\( \text{(alinearse o desalinearse)} \)</span>. El <strong>Hamiltoniano del modelo cuántico 1D con campo transversal</strong> (perpendicular al eje de los espines) es:</p>
 <div class="arithmatex">\[
 \hat{H} = -J\sum_{i=1}^{N-1} \hat{\sigma}_{i}^{z} \hat{\sigma}_{i + 1}^z - g \sum_{i = 1}^N \hat{\sigma}_{i}^x
@@ -324,7 +404,7 @@ H = -J \sum_{\langle i, j\rangle} s_i s_j - h \sum_{i} s_i
 <li><span class="arithmatex">\( \hat{\sigma}_{i}^{x} \)</span>: matriz de Pauli-X que representa la posibilidad de cambio de estado <span class="arithmatex">\( \left(\uparrow \leftrightarrow \downarrow \right) \)</span>.</li>
 </ul>
 <hr />
-<h2 id="matrices-de-pauli">Matrices de Pauli</h2>
+<h2 id="matrices-de-pauli">Matrices de Pauli<a class="headerlink" href="#matrices-de-pauli" title="Permanent link">&para;</a></h2>
 <div class="arithmatex">\[
 \sigma_x =
 \begin{pmatrix}
@@ -348,7 +428,7 @@ I =
 \end{pmatrix}
 \]</div>
 <hr />
-<h2 id="interpretacion-fisica-del-hamiltoniano">Interpretación física del Hamiltoniano</h2>
+<h2 id="interpretacion-fisica-del-hamiltoniano">Interpretación física del Hamiltoniano<a class="headerlink" href="#interpretacion-fisica-del-hamiltoniano" title="Permanent link">&para;</a></h2>
 <p><strong>Primer término</strong> <span class="arithmatex">\( \hat{\sigma}_{i}^{z} \hat{\sigma}_{i+1}^{z} \)</span>:
 - Representa la interacción entre espines vecinos.
 - Si están alineados <span class="arithmatex">\( (\uparrow\uparrow \text{ o } \downarrow\downarrow) \)</span>, da baja energía.
@@ -357,14 +437,14 @@ I =
 - Representa la acción de un campo en la dirección <span class="arithmatex">\( x \)</span>,
 - Introduce <strong>fluctuaciones cuánticas</strong> que permiten que los espines cambien de estado.</p>
 <hr />
-<h2 id="competencia-entre-orden-y-fluctuacion">Competencia entre orden y fluctuación</h2>
+<h2 id="competencia-entre-orden-y-fluctuacion">Competencia entre orden y fluctuación<a class="headerlink" href="#competencia-entre-orden-y-fluctuacion" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Cuando <span class="arithmatex">\( h = 0 \)</span>: sólo hay interacción entre espines → tienden a estar <strong>alineados</strong> → estado <strong>ferromagnético</strong>.</li>
 <li>Cuando <span class="arithmatex">\( J = 0 \)</span>: los espines siguen solo el campo externo → actúan <strong>independientemente</strong> → estado <strong>paramagnético</strong>.</li>
 <li>Cuando <span class="arithmatex">\( h \sim J \)</span>: hay un equilibrio → aparece una <strong>transición cuántica de fase</strong>.</li>
 </ul>
 <hr />
-<h2 id="representacion-en-mecanica-cuantica">Representación en mecánica cuántica</h2>
+<h2 id="representacion-en-mecanica-cuantica">Representación en mecánica cuántica<a class="headerlink" href="#representacion-en-mecanica-cuantica" title="Permanent link">&para;</a></h2>
 <p>Cada espín vive en un espacio de dimensión 2 ( <span class="arithmatex">\( \uparrow \)</span> o <span class="arithmatex">\( \downarrow \)</span> ). Una cadena de <span class="arithmatex">\( N \)</span> espines tiene un espacio de estados de dimensión <span class="arithmatex">\( 2^N \)</span>. Por ejemplo:</p>
 <ul>
 <li><span class="arithmatex">\( N = 1 \)</span>: estados = <span class="arithmatex">\( \{ \uparrow, \downarrow \} \)</span></li>
@@ -373,7 +453,7 @@ I =
 </ul>
 <p>El Hamiltoniano es entonces una <strong>matriz de dimensión <span class="arithmatex">\( 2^N \times 2^N \)</span></strong> que describe todas las interacciones posibles del sistema.</p>
 <hr />
-<h2 id="dinamica-cuantica">Dinámica cuántica</h2>
+<h2 id="dinamica-cuantica">Dinámica cuántica<a class="headerlink" href="#dinamica-cuantica" title="Permanent link">&para;</a></h2>
 <p>A diferencia del modelo clásico, en el modelo cuántico el Hamiltoniano también <strong>describe la evolución temporal</strong> del estado del sistema:</p>
 <div class="arithmatex">\[
 i\hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle
@@ -386,12 +466,10 @@ i\hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle
 <ul>
 <li>Dinámica de espines y correlaciones en el tiempo,</li>
 <li>Entrelazamiento cuántico,</li>
-<li>
-<h2 id="simulacion-cuantica-de-materiales-y-algoritmos-cuanticos">Simulación cuántica de materiales y algoritmos cuánticos.</h2>
-</li>
+<li>Simulación cuántica de materiales y algoritmos cuánticos.</li>
 </ul>
 <hr />
-<h2 id="implementacion-numerica">Implementación numérica</h2>
+<h2 id="implementacion-numerica">Implementación numérica<a class="headerlink" href="#implementacion-numerica" title="Permanent link">&para;</a></h2>
 <p>Para implementar este modelo en código (por ejemplo, en C++), es necesario:</p>
 <ul>
 <li>Representar las matrices de Pauli y la Identidad como matrices <code>2x2</code>.</li>
@@ -449,7 +527,7 @@ i\hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
