@@ -308,6 +308,7 @@ public:
 
 ## main.cpp
 
+El archivo **main.cpp** realiza la simulación numérica de la dinámica del modelo de Ising  a través de un enfoque de evolución temporal. El usuario ingresa el número de hilos a utilizar mediante OpenMP para aprovechar la paralelización del cálculo. A partir de un estado inicial puro, se construye la matriz Hamiltoniana \(\hat{H}\) del sistema utilizando productos tensoriales de matrices de Pauli y se resuelve la ecuación de Schrödinger dependiente del tiempo utilizando el método de Runge-Kutta de cuarto orden, implementado en la clase **rk4**. Además, se evalúa la evolución unitaria exacta mediante una expansión de Taylor truncada, permitiendo comparar y validar el método numérico. Finalmente, se mide el tiempo total de ejecución para evaluar el desempeño computacional según el número de hilos empleados, lo cual es esencial para el análisis de aceleración (**speedup**) en cálculos paralelos.
 
 ```cpp
 #include <iostream>
