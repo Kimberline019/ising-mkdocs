@@ -124,6 +124,7 @@ magnetizaciones = magnetizacion_z(estados, N)
 ##Implementación en C++
 
 ##Matriz.cpp
+Este código implementa una clase Matriz que representa matrices de números complejos y define operaciones fundamentales como suma, multiplicación matricial, multiplicación por escalar y producto tensorial, todas optimizadas con paralelización mediante OpenMP; su propósito dentro del modelo de Ising cuántico unidimensional es facilitar la construcción eficiente del Hamiltoniano a través de productos tensoriales de matrices de Pauli, así como la evolución del estado cuántico mediante multiplicaciones repetidas de matrices durante la integración numérica de la ecuación de Schrödinger.
 
 ```cpp
 #include <vector>
@@ -206,6 +207,7 @@ Matriz Matriz::tensor(const Matriz &obj) const {
 
 ##Matriz.hpp
 
+
 ```cpp
 #ifndef MATRIZ_HPP
 #define MATRIZ_HPP
@@ -238,6 +240,7 @@ class Matriz {
 
 ##hamiltoniano.cpp
 
+El archivo hamiltoniano.cpp define una clase Hamiltoniano que construye la matriz Hamiltoniana del modelo de Ising cuántico unidimensional en una red de $$ ( N )$$ espines, empleando productos tensoriales de matrices de Pauli. El término de interacción $$ ( -J \sum_i \sigma^z_i \sigma^z_{i+1} )$$ se implementa mediante ciclos que insertan dos matrices$$ (\sigma^z)$$ en las posiciones correspondientes y matrices identidad en los sitios restantes, considerando condiciones periódicas. El término de campo transversal $$ ( -g \sum_i \sigma^x_i )$$  se construye de forma similar, insertando$$ (\sigma^x)$$  en la posición adecuada. La matriz resultante $$ ( \hat{H} )$$ es de dimensión $$( 2^N \times 2^N )$$ y se guarda internamente para su posterior uso en la evolución dinámica del sistema.
 ```cpp
 #include "hamiltoniano.hpp"
 #include "pauli.hpp" 
@@ -304,7 +307,7 @@ public:
 ```
 
 ##main.cpp
-
+El archivo main.cpp realiza la simulación numérica de la dinámica del modelo de Ising a través de un enfoque de evolución temporal. El usuario ingresa el número de hilos a utilizar mediante OpenMP para aprovechar la paralelización del cálculo. A partir de un estado inicial puro, se construye la matriz Hamiltoniana $$ (\hat{H})$$ del sistema utilizando productos tensoriales de matrices de Pauli y se resuelve la ecuación de Schrödinger dependiente del tiempo utilizando el método de Runge-Kutta de cuarto orden, implementado en la clase rk4. Además, se evalúa la evolución unitaria exacta mediante una expansión de Taylor truncada, permitiendo comparar y validar el método numérico. Finalmente, se mide el tiempo total de ejecución para evaluar el desempeño computacional según el número de hilos empleados, lo cual es esencial para el análisis de aceleración $$ (speedup)$$ en cálculos paralelos
 
 ```cpp
 #include <iostream>
@@ -354,6 +357,8 @@ int main(){
 
 ##pauli.cpp
 
+El archivo $$ \texttt{pauli.cpp}$$ define funciones estáticas de la clase Pauli que retornan las matrices de Pauli $$( \hat{I} )$$, $4( \hat{\sigma}^x )$$  y $$ ( \hat{\sigma}^z )$$  representadas como objetos de la clase Matriz. Estas matrices son fundamentales en la construcción del Hamiltoniano del modelo de Ising cuántico unidimensional, ya que $$( \hat{\sigma}^z )$$  se utiliza para modelar la interacción entre espines vecinos, mientras que $$ ( \hat{\sigma}^x )$$ representa el efecto del campo magnético transversal. La matriz identidad $$( \hat{I} )$$ se emplea para completar los productos tensoriales cuando un operador actúa sobre un sitio específico de la cadena de espines
+
 ```cpp
 #include "pauli.hpp"
 
@@ -390,6 +395,7 @@ public:
 
 ##rk4.cpp
 
+El archivo rk4.cpp implementa la clase rk4, que permite resolver numéricamente la ecuación de Schrödinger dependiente del tiempo para un sistema cuántico, utilizando dos métodos: el método de Runge-Kutta de cuarto orden y una aproximación directa de la evolución unitaria basada en el desarrollo en serie de Taylor de la exponencial de matrices. El método aplicar calcula un paso de evolución temporal aplicando el algoritmo de Runge-Kutta a la función de onda $$( |\psi(t)\rangle )$$, con un paso de tiempo $$( h )$$, usando la matriz Hamiltoniana $$( \hat{H} )$$. Por otro lado, el método direct evalúa directamente  $$( e^{-i\hat{H}t}|\psi(0)\rangle )$$ truncando la serie de potencias en $$( n )$$ términos, lo cual es útil para validar la precisión del método numérico. Ambas estrategias son fundamentales para estudiar la dinámica del modelo de Ising a partir de un estado inicial.
 ```cpp
 
 #include <vector>
