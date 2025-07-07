@@ -42,7 +42,7 @@ sz = np.array([[1, 0], [0, -1]])  # σ_z
 def producto_tensorial(matrices):
     return reduce(np.kron, matrices)
 ```
-
+prueba
 ### Construcción del Hamiltoniano
 
 ```python
