@@ -123,6 +123,7 @@ magnetizaciones = magnetizacion_z(estados, N)
 
 ## Implementación en C++
 
+ 
 ## Matriz.cpp
 
 Este código implementa una clase Matriz que representa matrices de números complejos y define operaciones fundamentales como suma, multiplicación matricial, multiplicación por escalar y producto tensorial, todas optimizadas con paralelización mediante OpenMP; su propósito dentro del modelo de Ising cuántico unidimensional es facilitar la construcción eficiente del Hamiltoniano a través de productos tensoriales de matrices de Pauli, así como la evolución del estado cuántico mediante multiplicaciones repetidas de matrices durante la integración numérica de la ecuación de Schrödinger.
@@ -208,39 +209,179 @@ Matriz Matriz::tensor(const Matriz &obj) const {
 
 ## Matriz.hpp
 
+
 ```cpp
-#ifndef MATRIZ_HPP
-#define MATRIZ_HPP
+
+#ifndef MATRIZ_HPP 
+#define MATRIZ_HPP 
 
 #include <vector>
 #include <complex>
 #include <iostream>
-
+/**
+ * @brief Representa matrices. 
+ * Simplifica cálculos con matrices mediante operadores, lo que evita for loops explícitos en el resto del código.
+ * Almacena las dimensiones de la matriz en variables int  y sus datos en un std::vector<std::complex<double>>
+ */
 class Matriz {
 	private:
 		int filas, columnas;
 		std::vector<std::complex<double>> data;
 	public:
+		/**
+	 	* @brief Constructor personalizado que representa una matriz con el tamaño y datos dados.
+	 	* Ejemplo de uso:
+	 	* @code
+	 	*  Matriz B(2,2,({1,0},{0,0},{0,1},{0,1});
+	 	* @endcode
+	 	*
+	 	* @param filas  Número de filas.
+	 	* @param columnas  Número de columnas.
+	 	* @param vector complejo con los datos aplanados de la matriz.
+	 	*/
 		Matriz(int filas, int columnas, const std::vector<std::complex<double>>&valores);
+		/**
+	 	* @brief Constructor personalizado que representa una matriz no inicializada con el tamaño dado.
+	 	*
+	 	* Ejemplo de uso:
+	 	* @code
+	 	* Matriz A(2,2);
+	 	* @endcode
+	 	*
+	 	* @param filas Número de filas.
+	 	* @param columnas Número de columnas.
+	 	*/
 		Matriz(int filas, int columnas);
+		 /**
+		 * @brief Realiza la suma de dos matrices.
+		 *
+		 * Ejemplo de uso:
+		 * @code
+		 * Matriz C=A+B;
+		 * @endcode
+		 *
+		 * @param &obj Matriz a la derecha de la suma.
+		 * @return La suma de ambas matrices.
+		 */
 		Matriz operator+(const Matriz &obj) const;
+                 /**
+                 * @brief Realiza el producto entre dos matrices.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * Matriz C=A*B;
+                 * @endcode
+                 *
+                 * @param &obj Matriz a la derecha del producto.
+                 * @return El producto matricial.
+                 */
 		Matriz operator*(const Matriz &obj) const;
+                 /**
+                 * @brief Realiza el producto escalar.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * Matriz C=A*b;
+                 * @endcode
+                 *
+                 * @param &escalar escalar por el que se va a multiplicar (debe siempre estar a la derecha de la matriz).
+                 * @return Resultado del producto.
+                 */
 		Matriz operator*(const std::complex<double> &escalar) const;
+		 /**
+                 * @brief Realiza el producto tensorial.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * Matriz C=A.tensor(B);
+                 * @endcode
+                 *
+                 * @param &obj Matriz derecha por la que se realizará el producto tensorial.
+                 * @return Matriz resultado del producto tensorial.
+                 */
 		Matriz tensor(const Matriz &obj) const;
+		 /**
+                 * @brief Da la cantidad de filas de la matriz.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * int b=A.sizef();
+		 * //b=2
+                 * @endcode
+                 *
+                 * @return Número de filas de la matriz.
+                 */
 		int sizef() const;
+		 /**
+                 * @brief Da la cantidad de columnas de la matriz.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * int b=A.sizec();
+                 * //b=2
+                 * @endcode
+                 *
+                 * @return Número de columnas de la matriz.
+                 */
 		int sizec() const;
+		 /**
+                 * @brief Permite accesar un dato de la matriz aplanada de forma intuitiva para aplicaciones de la clase.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * std::complex<double>> b=A(2,2);
+                 * //b={1.0,0.0}
+                 * @endcode
+                 *
+		 * @param i Fila del dato a accesar.
+		 * @param j Columna del dato a accesar.
+                 * @return Dato en la posición (i,j) de la matriz.
+                 */
 		std::complex<double>& operator()(int i, int j);
+		 /* @brief Permite accesar un dato de la matriz aplanada de forma intuitiva para aplicaciones externas.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * std::complex<double>> b=A(2,2);
+                 * //b={1.0,0.0}
+                 * @endcode
+                 *
+                 * @param i Fila del dato a accesar.
+                 * @param j Columna del dato a accesar.
+                 * @return Dato en la posición (i,j) de la matriz.
+                 */
    		const std::complex<double>& operator()(int i, int j) const;
+		 /* @brief Devuelve el vector complejo que almacena los datos de la matriz.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * std::vector<std::complex<double>> b=A.datos()
+                 * //b=({1,0},{0,0},{0,1},{0,1})
+                 * @endcode
+                 *
+                 * @param i Fila del dato a accesar.
+                 * @param j Columna del dato a accesar.
+                 * @return Dato en la posición (i,j) de la matriz.
+                 */
 		const std::vector<std::complex<double>>& datos() const;
+                 /* @brief Devuelve la norma de un vector columna.
+                 *
+                 * Ejemplo de uso:
+                 * @code
+                 * double b=A.norma()
+                 * //b=sqrt(5)
+                 * @endcode
+                 *
+                 * @return Norma del vector.
+                 */
+		double norma() const;
 };
 
-#endif
 ```
 
 
 ## hamiltoniano.cpp
-El archivo **hamiltoniano.cpp** define una clase **Hamiltoniano** que construye la matriz Hamiltoniana del modelo de Ising cuántico unidimensional en una red de \( N \) espines, empleando productos tensoriales de matrices de Pauli. El término de interacción \( -J \sum_i \sigma^z_i \sigma^z_{i+1} \) se implementa mediante ciclos que insertan dos matrices \(\sigma^z\) en las posiciones correspondientes y matrices identidad en los sitios restantes, considerando condiciones periódicas. El término de campo transversal \( -g \sum_i \sigma^x_i \) se construye de forma similar, insertando \(\sigma^x\) en la posición adecuada. La matriz resultante \( \hat{H} \) es de dimensión \( 2^N \times 2^N \) y se guarda internamente para su posterior uso en la evolución dinámica del sistema.
-
+El archivo hamiltoniano.cpp define una clase Hamiltoniano que construye la matriz Hamiltoniana del modelo de Ising cuántico unidimensional en una red de $$ ( N )$$ espines, empleando productos tensoriales de matrices de Pauli. El término de interacción $$ ( -J \sum_i \sigma^z_i \sigma^z_{i+1} )$$ se implementa mediante ciclos que insertan dos matrices$$ (\sigma^z)$$ en las posiciones correspondientes y matrices identidad en los sitios restantes, considerando condiciones periódicas. El término de campo transversal $$ ( -g \sum_i \sigma^x_i )$$  se construye de forma similar, insertando$$ (\sigma^x)$$  en la posición adecuada. La matriz resultante $$ ( \hat{H} )$$ es de dimensión $$( 2^N \times 2^N )$$ y se guarda internamente para su posterior uso en la evolución dinámica del sistema.
 ```cpp
 #include "hamiltoniano.hpp"
 #include "pauli.hpp" 
@@ -288,27 +429,60 @@ const Matriz& Hamiltoniano::matriz() const {
 
 
 ```cpp
-#ifndef HAMILTONIANO_HPP
-#define HAMILTONIANO_HPP
+
 #include "Matriz.hpp"
 #include <vector>
 #include <complex>
+/**
+ * @brief Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del sistema a partir de los valores datos.
+ *Almacena la matriz del Hamiltoniano y la cantidad de espines del sistema.
+ * 
+ */
 class Hamiltoniano {
 private:
     Matriz H;            
     int N;            
 public:
+    /**
+    * @brief Constructor personalizado que crea una matriz sin inicializar de las dimensiones del Hamiltoniano del sistema.
+    *
+    * Ejemplo de uso:
+    * @code
+    * Hamiltoniano H_(espin);
+    * @endcode
+    */
     Hamiltoniano(int N_);
+    /**
+    * @brief Realiza los productos tensoriales necesarios para crear la matriz del Hamiltoniano del sistema y los almacena en los datos de la instancia.
+    *
+    * Ejemplo de uso:
+    * @code
+    * H_,construir(J,g);
+    * @endcode
+    *
+    * @param J dato de la escala energética de la interacción ferromagnética.
+    * @param g dato del parámetro energético del campo transversal.
+    */
     void construir(double J, double g); 
+        /**
+    * @brief Devuelve el hamiltoniano del que la clase almacena.
+    *
+    * Ejemplo de uso:
+    * @code
+    * H=H_,matriz();
+    * @endcode
+    *
+    * @return Matriz con el hamiltoniano de la clase.
+    */
     const Matriz& matriz() const;
 };
 
-#endif
 ```
 
 ## main.cpp
 
-El archivo **main.cpp** realiza la simulación numérica de la dinámica del modelo de Ising  a través de un enfoque de evolución temporal. El usuario ingresa el número de hilos a utilizar mediante OpenMP para aprovechar la paralelización del cálculo. A partir de un estado inicial puro, se construye la matriz Hamiltoniana \(\hat{H}\) del sistema utilizando productos tensoriales de matrices de Pauli y se resuelve la ecuación de Schrödinger dependiente del tiempo utilizando el método de Runge-Kutta de cuarto orden, implementado en la clase **rk4**. Además, se evalúa la evolución unitaria exacta mediante una expansión de Taylor truncada, permitiendo comparar y validar el método numérico. Finalmente, se mide el tiempo total de ejecución para evaluar el desempeño computacional según el número de hilos empleados, lo cual es esencial para el análisis de aceleración (**speedup**) en cálculos paralelos.
+El archivo **main.cpp** realiza la simulación numérica de la dinámica del modelo de Ising  a través de un enfoque de evolución temporal. El usuario ingresa el número de hilos a utilizar mediante OpenMP para aprovechar la paralelización del cálculo. A partir de un estado inicial puro, se construye la matriz Hamiltoniana  \(\hat{H}\)  del sistema utilizando productos tensoriales de matrices de Pauli y se resuelve la ecuación de Schrödinger dependiente del tiempo utilizando el método de Runge-Kutta de cuarto orden, implementado en la clase **rk4**. Además, se evalúa la evolución unitaria exacta mediante una expansión de Taylor truncada, permitiendo comparar y validar el método numérico. Finalmente, se mide el tiempo total de ejecución para evaluar el desempeño computacional según el número de hilos empleados, lo cual es esencial para el análisis de aceleración (**speedup**) en cálculos paralelos.
+
 
 ```cpp
 #include <iostream>
@@ -382,7 +556,8 @@ int main(){
 
 
 ## pauli.cpp
-El archivo \texttt{pauli.cpp} define funciones estáticas de la clase **Pauli** que retornan las matrices de Pauli \( \hat{I} \), \( \hat{\sigma}^x \) y \( \hat{\sigma}^z \) representadas como objetos de la clase Matriz. Estas matrices son fundamentales en la construcción del Hamiltoniano del modelo de Ising cuántico unidimensional, ya que \( \hat{\sigma}^z \) se utiliza para modelar la interacción entre espines vecinos, mientras que \( \hat{\sigma}^x \) representa el efecto del campo magnético transversal. La matriz identidad \( \hat{I} \) se emplea para completar los productos tensoriales cuando un operador actúa sobre un sitio específico de la cadena de espines.
+
+El archivo $$ \texttt{pauli.cpp}$$ define funciones estáticas de la clase Pauli que retornan las matrices de Pauli $$( \hat{I} )$$, $4( \hat{\sigma}^x )$$  y $$ ( \hat{\sigma}^z )$$  representadas como objetos de la clase Matriz. Estas matrices son fundamentales en la construcción del Hamiltoniano del modelo de Ising cuántico unidimensional, ya que $$( \hat{\sigma}^z )$$  se utiliza para modelar la interacción entre espines vecinos, mientras que $$ ( \hat{\sigma}^x )$$ representa el efecto del campo magnético transversal. La matriz identidad $$( \hat{I} )$$ se emplea para completar los productos tensoriales cuando un operador actúa sobre un sitio específico de la cadena de espines
 
 ```cpp
 #include "pauli.hpp"
@@ -406,21 +581,20 @@ Matriz Pauli::Z(){
 #ifndef PAULI_H
 #define PAULI_H
 #include "Matriz.hpp"
-
+/**
+ * @brief Define las matrices de Pauli usando la clase Matriz como constantes para su fácil acceso.
+ *
+ */
 class Pauli {
 public:
     static Matriz I();
-    static Matriz X();
-    static Matriz Z();
-};
-
-#endif
 ```
 
 
 ## rk4.cpp
-El archivo **rk4.cpp** implementa la clase **rk4**, que permite resolver numéricamente la ecuación de Schrödinger dependiente del tiempo para un sistema cuántico, utilizando dos métodos: el método de Runge-Kutta de cuarto orden y una aproximación directa de la evolución unitaria basada en el desarrollo en serie de Taylor de la exponencial de matrices. El método **aplicar** calcula un paso de evolución temporal aplicando el algoritmo de Runge-Kutta a la función de onda \( |\psi(t)\rangle \), con un paso de tiempo \( h \), usando la matriz Hamiltoniana \( \hat{H} \). Por otro lado, el método **direct** evalúa directamente \( e^{-i\hat{H}t}|\psi(0)\rangle \) truncando la serie de potencias en \( n \) términos, lo cual es útil para validar la precisión del método numérico. Ambas estrategias son fundamentales para estudiar la dinámica del modelo de Ising a partir de un estado inicial.
 
+
+El archivo rk4.cpp implementa la clase rk4, que permite resolver numéricamente la ecuación de Schrödinger dependiente del tiempo para un sistema cuántico, utilizando dos métodos: el método de Runge-Kutta de cuarto orden y una aproximación directa de la evolución unitaria basada en el desarrollo en serie de Taylor de la exponencial de matrices. El método aplicar calcula un paso de evolución temporal aplicando el algoritmo de Runge-Kutta a la función de onda $( |\psi(t)\rangle )$, con un paso de tiempo ( h ), usando la matriz Hamiltoniana $( \hat{H} )$. Por otro lado, el método direct evalúa directamente  $( e^{-i\hat{H}t}|\psi(0)\rangle )$ truncando la serie de potencias en $( n ) términos, lo cual es útil para validar la precisión del método numérico. Ambas estrategias son fundamentales para estudiar la dinámica del modelo de Ising a partir de un estado inicial.
 ```cpp
 
 #include <vector>
@@ -466,23 +640,56 @@ Matriz rk4::direct(const Matriz& phi0,int &n,double &t) const{
 
 ```cpp
 
-#ifndef RK4_HPP
-#define RK4_HPP
-
 #include <vector>
 #include <complex>
 #include "Matriz.hpp"
-
+/**
+ * @brief Almacena los métodos de cálculo para el phi final.
+ *
+ * Sus operadores permiten calcular limpiamente el estado final de phi. Almacena el hamiltoniano del sistema y el tamaño del paso a aplicar.
+ */	
 class rk4 {
 private:
     Matriz H;
     double h;
 public:
+    /**
+     * @brief Constructor personalizado que almacena los datos necesarios para el método numérico.
+     * Ejemplo de uso: 
+     * @code 
+     * rk4 metodo(H,0.001);
+     *  @endcode
+     *
+     * @param &Hamiltoniano El hamiltoniano del sistema.
+     * @param Paso Tamaño del paso que aplicará el método numérico.
+     */
     rk4(const Matriz& Hamiltoniano, double paso);
+        /**
+     * @brief Aplica una iteración del método Runge-Kutta grado 4.
+     * Ejemplo de uso:
+     * @code
+     * Matriz v= metodo.aplicar(phi_0);
+     *  @endcode
+     *
+     * @param &phi0 Matriz con el vector columna que almacena las condiciones de phi antes de la iteración.
+     * @return &phi0 Matriz con el vector columna phi en el tiempo t+h.
+     */
     Matriz aplicar(const Matriz &phi0) const;
-    Matriz direct(const Matriz &phi0, int &n,double &t) const;
-};
+     /**
+     * @brief Calcula mediante series de Taylor el valor de exp(-iHt) y la aplica las condiciones iniciales de phi.
+     * Ejemplo de uso:
+     * @code
+     * Matriz v= metodo.direct(phi_0);
+     *  @endcode
+     *
+     *@param &phi0 Matriz con el vector columna que almacena las condiciones de
+ phi antes de la iteración.
+     *@param &n Entero con el número de términos que se quieren para la expansión de Taylor.
+     *@param &t Tiempo final del sistema.
+     *@return Matriz con el vector columna con los valores finales de phi.
+     *
+     * 
+     */
 
-#endif
 ```
 
