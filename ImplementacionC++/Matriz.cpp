@@ -1,5 +1,6 @@
 #include <vector>
 #include <complex>
+#include <cmath>
 #include <iostream>
 #include "Matriz.hpp"
 #include <omp.h>
@@ -54,21 +55,28 @@ Matriz Matriz::operator*(const std::complex<double>& escalar) const{
 	return newMatriz;
 }
 Matriz Matriz::tensor(const Matriz &obj) const {
-    int m = filas;
-    int n = columnas;
-    int p = obj.sizef();
-    int q = obj.sizec();
-    Matriz newMatriz(m*p,n*q);
-    #pragma omp parallel for collapse(2)
-    for (int i=0;i<m;++i){
-        for (int j=0;j<n;++j){
-            for (int k=0;k<p;++k){
-                for (int l=0;l<q;++l){
-                    newMatriz(i*p+k,j*q+l)=(*this)(i,j)*obj(k,l);
-                }
-            }
-        }
-    }
-
-    return newMatriz;
+    	int m = filas;
+   	 int n = columnas;
+   	 int p = obj.sizef();
+   	 int q = obj.sizec();
+   	 Matriz newMatriz(m*p,n*q);
+   	 #pragma omp parallel for collapse(2)
+   	 for (int i=0;i<m;++i){
+   	     for (int j=0;j<n;++j){
+   	         for (int k=0;k<p;++k){
+   	             for (int l=0;l<q;++l){
+   	                 newMatriz(i*p+k,j*q+l)=(*this)(i,j)*obj(k,l);
+   	             }
+   	         }
+   	     }
+   	 }
+   	 return newMatriz;
+}
+double Matriz::norma() const{
+   	 double suma = 0.0;
+   	 for (int i=0;i<filas;++i){
+   	     std::complex<double> val=(*this)(i, 0);
+   	     suma += std::norm(val);
+   	 }
+   	 return std::sqrt(suma);
 }
