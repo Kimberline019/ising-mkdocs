@@ -456,11 +456,11 @@ I =
 <h2 id="dinamica-cuantica">Dinámica cuántica<a class="headerlink" href="#dinamica-cuantica" title="Permanent link">&para;</a></h2>
 <p>A diferencia del modelo clásico, en el modelo cuántico el Hamiltoniano también <strong>describe la evolución temporal</strong> del estado del sistema:</p>
 <div class="arithmatex">\[
-i\hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle
+\frac{\partial}{\partial t} |\psi(t)\rangle = -i \hat{H} |\psi(t)\rangle
 \]</div>
 <p>La solución de esta ecuación es:</p>
 <div class="arithmatex">\[
-|\psi(t)\rangle = e^{-i\hat{H}t/\hbar} |\psi(0)\rangle
+|\psi(t)\rangle = e^{-i\hat{H}(t - t_0)} |\psi(t_0)\rangle
 \]</div>
 <p>Este formalismo permite estudiar:</p>
 <ul>
