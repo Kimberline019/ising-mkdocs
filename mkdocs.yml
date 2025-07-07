@@ -1,4 +1,6 @@
 site_name: Modelo de Ising Cuántico
+site_url: https://Kimberline019.github.io/ising-mkdocs/
+site_description: Documentación del proyecto de simulación cuántica en una cadena de espines
 
 nav:
   - Inicio: index.md
@@ -7,13 +9,30 @@ nav:
 
 theme:
   name: material
+  palette:
+    scheme: default
+    primary: blue
+    accent: cyan
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
 
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - footnotes
+  - attr_list
+  - def_list
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
 
