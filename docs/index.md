@@ -100,22 +100,25 @@ El Hamiltoniano es entonces una **matriz de dimensión \( 2^N \times 2^N \)** qu
 
 A diferencia del modelo clásico, en el modelo cuántico el Hamiltoniano también **describe la evolución temporal** del estado del sistema:
 
-\[
-i\hbar \frac{d}{dt} |\psi(t)\rangle = \hat{H} |\psi(t)\rangle
-\]
+$$
+\frac{\partial}{\partial t} |\psi(t)\rangle = -i \hat{H} |\psi(t)\rangle
+$$
+
 
 La solución de esta ecuación es:
 
-\[
-|\psi(t)\rangle = e^{-i\hat{H}t/\hbar} |\psi(0)\rangle
-\]
+
+$$
+|\psi(t)\rangle = e^{-i\hat{H}(t - t_0)} |\psi(t_0)\rangle
+$$
+
 
 Este formalismo permite estudiar:
 
 - Dinámica de espines y correlaciones en el tiempo,
 - Entrelazamiento cuántico,
 - Simulación cuántica de materiales y algoritmos cuánticos.
--
+
 
 
 ---
