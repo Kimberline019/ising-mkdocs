@@ -5,25 +5,43 @@
 #include "hamiltoniano.hpp"
 #include "rk4.hpp"
 #include "pauli.hpp"
-/* @brief Da los valores de todas las cantidades relevantes para la resolución del problema y aplica los métodos.
- */
+#include <omp.h>
+#include <sys/time.h>
+
+double seconds() {
+    struct timeval tmp;
+    gettimeofday(&tmp, nullptr);
+    return tmp.tv_sec + tmp.tv_usec * 1e-6;
+}
+
 
 int main(){
-	double J=1.0; // Valor de la escala energética
-	double g=1.0; //Valor del parámetro energético del campo transversal
-	double tF=2.0; //Tiempo final
-	double h=0.01; //Tamaño del paso
-	int spin = 1;  //Cantidad de espines
-	int n=2; //Cantidad de términos para la expansión de Taylor 
+	double J=1.0;
+	double g=1.0;
+	double tF=2.0;
+	double h=0.0001;
+	int spin = 3;
+	int n=100;
+
+   int num_threads;
+    std::cout << "Ingrese el número de hilos a usar: ";
+    std::cin >> num_threads;
+    omp_set_num_threads(num_threads); 
+
+
     	int dim = 1 << spin; 
-   	std::vector<std::complex<double>> inicial(dim, {1.0, 0.0}); //Condiciones iniciales de phi
+   	std::vector<std::complex<double>> inicial(dim, {1.0, 0.0});
 	Matriz phi0(dim,1,inicial);
-	Matriz phi_0(dim,1,inicial);
 	Matriz phicopy(dim,1);
+
 	Hamiltoniano H_(spin);
 	H_.construir(J,g);
 	Matriz H=H_.matriz();
+	
 	rk4 rk4(H,h);
+
+    double time_start = seconds();
+
 	double contador=0;
 	while (contador <=tF){
 		phicopy=rk4.aplicar(phi0); 
@@ -35,13 +53,14 @@ int main(){
 		contador+=h;
 		phi0=phicopy;
 	}
-	std::cout << phi0.norma()<< std::endl;
-	phicopy=rk4.direct(phi_0,n,tF);
+	phicopy=rk4.direct(phi0,n,tF);
 	for (int i=0;i<phicopy.sizef();++i){
         	std::cout<<phicopy(i,0)<<std::endl;
         }
         std::cout << std::endl;
-	std::cout << phicopy.norma()<< std::endl;
-
+    
+    double time_end = seconds();
+    std::cout << "Tiempo de ejecución: " << (time_end - time_start) << " segundos" << std::endl;
+    std::cout << "Número de hilos utilizados: " << num_threads << std::endl;
 	return 0;
 	}
