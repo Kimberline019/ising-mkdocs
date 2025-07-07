@@ -6,7 +6,7 @@ nav:
   - Inicio: index.md
   - Código: codigo.md
   - Resultados: resultados.md
-  - API (Doxygen): docs/doxygen/html/index.html
+  - Documentación: doxygen/html/index.html
 theme:
   name: material
   palette:
