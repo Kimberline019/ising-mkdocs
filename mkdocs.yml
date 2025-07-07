@@ -5,8 +5,15 @@ site_description: Documentación del proyecto de simulación cuántica en una ca
 nav:
   - Inicio: index.md
   - Código: codigo.md
+  - Código: ising.md
   - Resultados: resultados.md
   - Documentación: doxygen/html/index.html
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["Implementaciónenpython"]
 theme:
   name: material
   palette:

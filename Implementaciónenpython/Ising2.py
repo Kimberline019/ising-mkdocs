@@ -7,7 +7,21 @@ sx = np.array([[0, 1], [1, 0]])  #sigma_x
 sz = np.array([[1, 0], [0, -1]]) #sigma_z
 
 # Función para hacer el producto tensorial de una lista de matrices
-def producto_tensorial(matrices):
+def producto_tensorial(matrices)i:
+            """
+        Suma dos números.
+
+        Args:
+            a (float): Primer número.
+            b (float): Segundo número.
+
+        Returns:
+            float: Resultado de la suma.
+
+        Example:
+            >>> Calculadora().suma(1.5, 2.5)
+            4.0
+        """
     return reduce(np.kron, matrices) #np.kron aplica el producto tensorial delta de kronecker a una lista de matrices 
                                      #el "reduce" lo aplica iterativamente
     
