@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Implementación C++: Referencia de la clase Hamiltoniano</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Implementación C++
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="classHamiltoniano-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase Hamiltoniano</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Esta clase se encarga de realizar las operaciones necesarias para construir el <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> del sistema a partir de los valores datos. Almacena la matriz del <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> y la cantidad de espines del sistema.  
+ <a href="classHamiltoniano.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="hamiltoniano_8hpp_source.html">hamiltoniano.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:a333f1e124073d4c3fe6f4ea6792545ea" id="r_a333f1e124073d4c3fe6f4ea6792545ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHamiltoniano.html#a333f1e124073d4c3fe6f4ea6792545ea">Hamiltoniano</a> (int N_)</td></tr>
+<tr class="memdesc:a333f1e124073d4c3fe6f4ea6792545ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor personalizado que crea una matriz sin inicializar de las dimensiones del <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> del sistema.  <br /></td></tr>
+<tr class="separator:a333f1e124073d4c3fe6f4ea6792545ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45949e0b239e1f5c0cbab1d94f9941f3" id="r_a45949e0b239e1f5c0cbab1d94f9941f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHamiltoniano.html#a45949e0b239e1f5c0cbab1d94f9941f3">construir</a> (double J, double g)</td></tr>
+<tr class="memdesc:a45949e0b239e1f5c0cbab1d94f9941f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza los productos tensoriales necesarios para crear la matriz del <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> del sistema y los almacena en los datos de la instancia.  <br /></td></tr>
+<tr class="separator:a45949e0b239e1f5c0cbab1d94f9941f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad40cabde2f2cd8d366201bf580695177" id="r_ad40cabde2f2cd8d366201bf580695177"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classMatriz.html">Matriz</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHamiltoniano.html#ad40cabde2f2cd8d366201bf580695177">matriz</a> () const</td></tr>
+<tr class="memdesc:ad40cabde2f2cd8d366201bf580695177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el hamiltoniano del que la clase almacena.  <br /></td></tr>
+<tr class="separator:ad40cabde2f2cd8d366201bf580695177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Esta clase se encarga de realizar las operaciones necesarias para construir el <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> del sistema a partir de los valores datos. Almacena la matriz del <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> y la cantidad de espines del sistema. </p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="a333f1e124073d4c3fe6f4ea6792545ea" name="a333f1e124073d4c3fe6f4ea6792545ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a333f1e124073d4c3fe6f4ea6792545ea">&#9670;&#160;</a></span>Hamiltoniano()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Hamiltoniano::Hamiltoniano </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>N_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor personalizado que crea una matriz sin inicializar de las dimensiones del <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> del sistema. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classHamiltoniano.html">Hamiltoniano</a> H_(espin);</div>
+<div class="ttc" id="aclassHamiltoniano_html"><div class="ttname"><a href="classHamiltoniano.html">Hamiltoniano</a></div><div class="ttdoc">Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...</div><div class="ttdef"><b>Definition</b> hamiltoniano.hpp:11</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a45949e0b239e1f5c0cbab1d94f9941f3" name="a45949e0b239e1f5c0cbab1d94f9941f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45949e0b239e1f5c0cbab1d94f9941f3">&#9670;&#160;</a></span>construir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Hamiltoniano::construir </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>J</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza los productos tensoriales necesarios para crear la matriz del <a class="el" href="classHamiltoniano.html" title="Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del siste...">Hamiltoniano</a> del sistema y los almacena en los datos de la instancia. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line">H_,<a class="code hl_function" href="classHamiltoniano.html#a45949e0b239e1f5c0cbab1d94f9941f3">construir</a>(J,g);</div>
+<div class="ttc" id="aclassHamiltoniano_html_a45949e0b239e1f5c0cbab1d94f9941f3"><div class="ttname"><a href="classHamiltoniano.html#a45949e0b239e1f5c0cbab1d94f9941f3">Hamiltoniano::construir</a></div><div class="ttdeci">void construir(double J, double g)</div><div class="ttdoc">Realiza los productos tensoriales necesarios para crear la matriz del Hamiltoniano del sistema y los ...</div><div class="ttdef"><b>Definition</b> hamiltoniano.cpp:9</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">J</td><td>dato de la escala energética de la interacción ferromagnética. </td></tr>
+    <tr><td class="paramname">g</td><td>dato del parámetro energético del campo transversal. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad40cabde2f2cd8d366201bf580695177" name="ad40cabde2f2cd8d366201bf580695177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad40cabde2f2cd8d366201bf580695177">&#9670;&#160;</a></span>matriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classMatriz.html">Matriz</a> &amp; Hamiltoniano::matriz </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el hamiltoniano del que la clase almacena. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line">H=H_,<a class="code hl_function" href="classHamiltoniano.html#ad40cabde2f2cd8d366201bf580695177">matriz</a>();</div>
+<div class="ttc" id="aclassHamiltoniano_html_ad40cabde2f2cd8d366201bf580695177"><div class="ttname"><a href="classHamiltoniano.html#ad40cabde2f2cd8d366201bf580695177">Hamiltoniano::matriz</a></div><div class="ttdeci">const Matriz &amp; matriz() const</div><div class="ttdoc">Devuelve el hamiltoniano del que la clase almacena.</div><div class="ttdef"><b>Definition</b> hamiltoniano.cpp:37</div></div>
+</div><!-- fragment --><dl class="section return"><dt>Devuelve</dt><dd><a class="el" href="classMatriz.html" title="Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops exp...">Matriz</a> con el hamiltoniano de la clase. </dd></dl>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li><a class="el" href="hamiltoniano_8hpp_source.html">hamiltoniano.hpp</a></li>
+<li><a class="el" href="hamiltoniano_8cpp.html">hamiltoniano.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
