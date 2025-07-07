@@ -1,0 +1,9 @@
+<map id="pauli.hpp" name="pauli.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="165,5,247,31"/>
+<area shape="rect" id="Node000002" href="$hamiltoniano_8cpp.html" title=" " alt="" coords="5,79,140,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,39,96,81,93,76,171,35"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="165,79,247,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,44,209,79,203,79,203,44"/>
+<area shape="rect" id="Node000004" href="$pauli_8cpp.html" title=" " alt="" coords="272,79,353,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="236,36,297,76,294,81,233,40"/>
+</map>

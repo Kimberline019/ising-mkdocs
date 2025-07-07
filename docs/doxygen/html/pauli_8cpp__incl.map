@@ -1,0 +1,13 @@
+<map id="pauli.cpp" name="pauli.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,172,31"/>
+<area shape="rect" id="Node000002" href="$pauli_8hpp.html" title=" " alt="" coords="90,79,173,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,31,134,65,129,65,129,31"/>
+<area shape="rect" id="Node000003" href="$Matriz_8hpp.html" title=" " alt="" coords="86,152,177,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,104,134,138,129,138,129,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,68,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="118,179,65,219,62,215,115,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="92,225,171,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="134,178,134,212,129,212,129,178"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="195,225,275,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="150,175,208,215,205,219,147,180"/>
+</map>
