@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Implementación C++: Referencia de la clase Matriz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Implementación C++
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos públicos</a> &#124;
+<a href="classMatriz-members.html">Lista de todos los miembros</a>  </div>
+  <div class="headertitle"><div class="title">Referencia de la clase Matriz</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops explícitos en el resto del código. Almacena las dimensiones de la matriz en variables int y sus datos en un std::vector&lt;std::complex&lt;double&gt;&gt;  
+ <a href="classMatriz.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Matriz_8hpp_source.html">Matriz.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:af997ebab9347ab42b0a18b9bc2b28f3e" id="r_af997ebab9347ab42b0a18b9bc2b28f3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#af997ebab9347ab42b0a18b9bc2b28f3e">Matriz</a> (int filas, int columnas, const std::vector&lt; std::complex&lt; double &gt; &gt; &amp;valores)</td></tr>
+<tr class="memdesc:af997ebab9347ab42b0a18b9bc2b28f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor personalizado que representa una matriz con el tamaño y datos dados. Ejemplo de uso:  <br /></td></tr>
+<tr class="separator:af997ebab9347ab42b0a18b9bc2b28f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ef59699ba5abf6896e3140a42d92d9" id="r_a68ef59699ba5abf6896e3140a42d92d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a68ef59699ba5abf6896e3140a42d92d9">Matriz</a> (int filas, int columnas)</td></tr>
+<tr class="memdesc:a68ef59699ba5abf6896e3140a42d92d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor personalizado que representa una matriz no inicializada con el tamaño dado.  <br /></td></tr>
+<tr class="separator:a68ef59699ba5abf6896e3140a42d92d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7621d85b5fbe270f27a9b0be0466d4e3" id="r_a7621d85b5fbe270f27a9b0be0466d4e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatriz.html">Matriz</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a7621d85b5fbe270f27a9b0be0466d4e3">operator+</a> (const <a class="el" href="classMatriz.html">Matriz</a> &amp;obj) const</td></tr>
+<tr class="memdesc:a7621d85b5fbe270f27a9b0be0466d4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza la suma de dos matrices.  <br /></td></tr>
+<tr class="separator:a7621d85b5fbe270f27a9b0be0466d4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19c9b8602be1222e7c37806cda5b3dca" id="r_a19c9b8602be1222e7c37806cda5b3dca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatriz.html">Matriz</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a19c9b8602be1222e7c37806cda5b3dca">operator*</a> (const <a class="el" href="classMatriz.html">Matriz</a> &amp;obj) const</td></tr>
+<tr class="memdesc:a19c9b8602be1222e7c37806cda5b3dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza el producto entre dos matrices.  <br /></td></tr>
+<tr class="separator:a19c9b8602be1222e7c37806cda5b3dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21ca1116715570762d01df4c7c704e8b" id="r_a21ca1116715570762d01df4c7c704e8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatriz.html">Matriz</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a21ca1116715570762d01df4c7c704e8b">operator*</a> (const std::complex&lt; double &gt; &amp;escalar) const</td></tr>
+<tr class="memdesc:a21ca1116715570762d01df4c7c704e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza el producto escalar.  <br /></td></tr>
+<tr class="separator:a21ca1116715570762d01df4c7c704e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfd478daa62c6d96db7e74ad029a6110" id="r_acfd478daa62c6d96db7e74ad029a6110"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMatriz.html">Matriz</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#acfd478daa62c6d96db7e74ad029a6110">tensor</a> (const <a class="el" href="classMatriz.html">Matriz</a> &amp;obj) const</td></tr>
+<tr class="memdesc:acfd478daa62c6d96db7e74ad029a6110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza el producto tensorial.  <br /></td></tr>
+<tr class="separator:acfd478daa62c6d96db7e74ad029a6110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460d0e693a52223d0b86be8fc183fc48" id="r_a460d0e693a52223d0b86be8fc183fc48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a460d0e693a52223d0b86be8fc183fc48">sizef</a> () const</td></tr>
+<tr class="separator:a460d0e693a52223d0b86be8fc183fc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c9ff9360353daf54f4f8d5a3954fba9" id="r_a3c9ff9360353daf54f4f8d5a3954fba9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a3c9ff9360353daf54f4f8d5a3954fba9">sizec</a> () const</td></tr>
+<tr class="memdesc:a3c9ff9360353daf54f4f8d5a3954fba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Da la cantidad de columnas de la matriz.  <br /></td></tr>
+<tr class="separator:a3c9ff9360353daf54f4f8d5a3954fba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac050902c146f5086f0535ddc4058e3db" id="r_ac050902c146f5086f0535ddc4058e3db"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#ac050902c146f5086f0535ddc4058e3db">operator()</a> (int i, int j)</td></tr>
+<tr class="separator:ac050902c146f5086f0535ddc4058e3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f64915ef69aa839dceb981006881fad" id="r_a2f64915ef69aa839dceb981006881fad"><td class="memItemLeft" align="right" valign="top">const std::complex&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a2f64915ef69aa839dceb981006881fad">operator()</a> (int i, int j) const</td></tr>
+<tr class="separator:a2f64915ef69aa839dceb981006881fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d29a2fa5509ff1d6b73746fb082d7bf" id="r_a9d29a2fa5509ff1d6b73746fb082d7bf"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#a9d29a2fa5509ff1d6b73746fb082d7bf">datos</a> () const</td></tr>
+<tr class="separator:a9d29a2fa5509ff1d6b73746fb082d7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab047bf6d2ce0bedc04658f522466f068" id="r_ab047bf6d2ce0bedc04658f522466f068"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatriz.html#ab047bf6d2ce0bedc04658f522466f068">norma</a> () const</td></tr>
+<tr class="separator:ab047bf6d2ce0bedc04658f522466f068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops explícitos en el resto del código. Almacena las dimensiones de la matriz en variables int y sus datos en un std::vector&lt;std::complex&lt;double&gt;&gt; </p>
+</div><h2 class="groupheader">Documentación de constructores y destructores</h2>
+<a id="af997ebab9347ab42b0a18b9bc2b28f3e" name="af997ebab9347ab42b0a18b9bc2b28f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af997ebab9347ab42b0a18b9bc2b28f3e">&#9670;&#160;</a></span>Matriz() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matriz::Matriz </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>filas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>columnas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>valores</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor personalizado que representa una matriz con el tamaño y datos dados. Ejemplo de uso: </p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classMatriz.html">Matriz</a> B(2,2,({1,0},{0,0},{0,1},{0,1});</div>
+<div class="ttc" id="aclassMatriz_html"><div class="ttname"><a href="classMatriz.html">Matriz</a></div><div class="ttdoc">Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops exp...</div><div class="ttdef"><b>Definition</b> Matriz.hpp:12</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filas</td><td>Número de filas. </td></tr>
+    <tr><td class="paramname">columnas</td><td>Número de columnas. </td></tr>
+    <tr><td class="paramname">vector</td><td>complejo con los datos aplanados de la matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68ef59699ba5abf6896e3140a42d92d9" name="a68ef59699ba5abf6896e3140a42d92d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ef59699ba5abf6896e3140a42d92d9">&#9670;&#160;</a></span>Matriz() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matriz::Matriz </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>filas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>columnas</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor personalizado que representa una matriz no inicializada con el tamaño dado. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMatriz.html">Matriz</a> A(2,2);</div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filas</td><td>Número de filas. </td></tr>
+    <tr><td class="paramname">columnas</td><td>Número de columnas. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones miembro</h2>
+<a id="a9d29a2fa5509ff1d6b73746fb082d7bf" name="a9d29a2fa5509ff1d6b73746fb082d7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d29a2fa5509ff1d6b73746fb082d7bf">&#9670;&#160;</a></span>datos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::complex&lt; double &gt; &gt; &amp; Matriz::datos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab047bf6d2ce0bedc04658f522466f068" name="ab047bf6d2ce0bedc04658f522466f068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab047bf6d2ce0bedc04658f522466f068">&#9670;&#160;</a></span>norma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Matriz::norma </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac050902c146f5086f0535ddc4058e3db" name="ac050902c146f5086f0535ddc4058e3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac050902c146f5086f0535ddc4058e3db">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; &amp; Matriz::operator() </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">    @brief Permite accesar un dato de la matriz aplanada de forma intuitiva para aplicaciones de la clase.
+
+    Ejemplo de uso:
+    @code
+    std::complex&lt;double&gt;&gt; b=A(2,2);
+    //b={1.0,0.0}
+    @endcode
+</pre> <dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Fila del dato a accesar. </td></tr>
+    <tr><td class="paramname">j</td><td>Columna del dato a accesar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Dato en la posición (i,j) de la matriz. </dd></dl>
+
+</div>
+</div>
+<a id="a2f64915ef69aa839dceb981006881fad" name="a2f64915ef69aa839dceb981006881fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f64915ef69aa839dceb981006881fad">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::complex&lt; double &gt; &amp; Matriz::operator() </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19c9b8602be1222e7c37806cda5b3dca" name="a19c9b8602be1222e7c37806cda5b3dca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c9b8602be1222e7c37806cda5b3dca">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatriz.html">Matriz</a> Matriz::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatriz.html">Matriz</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza el producto entre dos matrices. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMatriz.html">Matriz</a> C=A*B;</div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&amp;obj</td><td><a class="el" href="classMatriz.html" title="Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops exp...">Matriz</a> a la derecha del producto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>El producto matricial. </dd></dl>
+
+</div>
+</div>
+<a id="a21ca1116715570762d01df4c7c704e8b" name="a21ca1116715570762d01df4c7c704e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21ca1116715570762d01df4c7c704e8b">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatriz.html">Matriz</a> Matriz::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const std::complex&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>escalar</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza el producto escalar. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMatriz.html">Matriz</a> C=A*b;</div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&amp;escalar</td><td>escalar por el que se va a multiplicar (debe siempre estar a la derecha de la matriz). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Resultado del producto. </dd></dl>
+
+</div>
+</div>
+<a id="a7621d85b5fbe270f27a9b0be0466d4e3" name="a7621d85b5fbe270f27a9b0be0466d4e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7621d85b5fbe270f27a9b0be0466d4e3">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatriz.html">Matriz</a> Matriz::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatriz.html">Matriz</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza la suma de dos matrices. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMatriz.html">Matriz</a> C=A+B;</div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&amp;obj</td><td><a class="el" href="classMatriz.html" title="Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops exp...">Matriz</a> a la derecha de la suma. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>La suma de ambas matrices. </dd></dl>
+
+</div>
+</div>
+<a id="a3c9ff9360353daf54f4f8d5a3954fba9" name="a3c9ff9360353daf54f4f8d5a3954fba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c9ff9360353daf54f4f8d5a3954fba9">&#9670;&#160;</a></span>sizec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Matriz::sizec </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Da la cantidad de columnas de la matriz. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> b=A.sizec();</div>
+<div class="line"><span class="comment">//b=2</span></div>
+</div><!-- fragment --><dl class="section return"><dt>Devuelve</dt><dd>Número de columnas de la matriz. </dd></dl>
+
+</div>
+</div>
+<a id="a460d0e693a52223d0b86be8fc183fc48" name="a460d0e693a52223d0b86be8fc183fc48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460d0e693a52223d0b86be8fc183fc48">&#9670;&#160;</a></span>sizef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Matriz::sizef </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">    @brief Da la cantidad de filas de la matriz.
+
+    Ejemplo de uso:
+    @code
+    int b=A.sizef();
+</pre><p> //b=2 </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Número de filas de la matriz. </dd></dl>
+
+</div>
+</div>
+<a id="acfd478daa62c6d96db7e74ad029a6110" name="acfd478daa62c6d96db7e74ad029a6110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfd478daa62c6d96db7e74ad029a6110">&#9670;&#160;</a></span>tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMatriz.html">Matriz</a> Matriz::tensor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classMatriz.html">Matriz</a> &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza el producto tensorial. </p>
+<p>Ejemplo de uso: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classMatriz.html">Matriz</a> C=A.<a class="code hl_function" href="classMatriz.html#acfd478daa62c6d96db7e74ad029a6110">tensor</a>(B);</div>
+<div class="ttc" id="aclassMatriz_html_acfd478daa62c6d96db7e74ad029a6110"><div class="ttname"><a href="classMatriz.html#acfd478daa62c6d96db7e74ad029a6110">Matriz::tensor</a></div><div class="ttdeci">Matriz tensor(const Matriz &amp;obj) const</div><div class="ttdoc">Realiza el producto tensorial.</div><div class="ttdef"><b>Definition</b> Matriz.cpp:57</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&amp;obj</td><td><a class="el" href="classMatriz.html" title="Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops exp...">Matriz</a> derecha por la que se realizará el producto tensorial. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd><a class="el" href="classMatriz.html" title="Representa matrices. Simplifica cálculos con matrices mediante operadores, lo que evita for loops exp...">Matriz</a> resultado del producto tensorial. </dd></dl>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li><a class="el" href="Matriz_8hpp_source.html">Matriz.hpp</a></li>
+<li><a class="el" href="Matriz_8cpp.html">Matriz.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
