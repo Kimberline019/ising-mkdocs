@@ -121,9 +121,9 @@ magnetizaciones = magnetizacion_z(estados, N)
 ```
 
 
-##Implementación en C++
+## Implementación en C++
 
-##Matriz.cpp
+## Matriz.cpp
 
 Este código implementa una clase Matriz que representa matrices de números complejos y define operaciones fundamentales como suma, multiplicación matricial, multiplicación por escalar y producto tensorial, todas optimizadas con paralelización mediante OpenMP; su propósito dentro del modelo de Ising cuántico unidimensional es facilitar la construcción eficiente del Hamiltoniano a través de productos tensoriales de matrices de Pauli, así como la evolución del estado cuántico mediante multiplicaciones repetidas de matrices durante la integración numérica de la ecuación de Schrödinger.
 
@@ -206,7 +206,7 @@ Matriz Matriz::tensor(const Matriz &obj) const {
 
 
 
-##Matriz.hpp
+## Matriz.hpp
 
 ```cpp
 #ifndef MATRIZ_HPP
@@ -238,7 +238,8 @@ class Matriz {
 ```
 
 
-##hamiltoniano.cpp
+## hamiltoniano.cpp
+El archivo **hamiltoniano.cpp** define una clase **Hamiltoniano** que construye la matriz Hamiltoniana del modelo de Ising cuántico unidimensional en una red de \( N \) espines, empleando productos tensoriales de matrices de Pauli. El término de interacción \( -J \sum_i \sigma^z_i \sigma^z_{i+1} \) se implementa mediante ciclos que insertan dos matrices \(\sigma^z\) en las posiciones correspondientes y matrices identidad en los sitios restantes, considerando condiciones periódicas. El término de campo transversal \( -g \sum_i \sigma^x_i \) se construye de forma similar, insertando \(\sigma^x\) en la posición adecuada. La matriz resultante \( \hat{H} \) es de dimensión \( 2^N \times 2^N \) y se guarda internamente para su posterior uso en la evolución dinámica del sistema.
 
 ```cpp
 #include "hamiltoniano.hpp"
@@ -283,7 +284,7 @@ const Matriz& Hamiltoniano::matriz() const {
 ```
 
 
-##hamiltoniano.hpp
+## hamiltoniano.hpp
 
 
 ```cpp
@@ -305,7 +306,7 @@ public:
 #endif
 ```
 
-##main.cpp
+## main.cpp
 
 
 ```cpp
@@ -354,7 +355,8 @@ int main(){
 
 
 
-##pauli.cpp
+## pauli.cpp
+El archivo \texttt{pauli.cpp} define funciones estáticas de la clase **Pauli** que retornan las matrices de Pauli \( \hat{I} \), \( \hat{\sigma}^x \) y \( \hat{\sigma}^z \) representadas como objetos de la clase Matriz. Estas matrices son fundamentales en la construcción del Hamiltoniano del modelo de Ising cuántico unidimensional, ya que \( \hat{\sigma}^z \) se utiliza para modelar la interacción entre espines vecinos, mientras que \( \hat{\sigma}^x \) representa el efecto del campo magnético transversal. La matriz identidad \( \hat{I} \) se emplea para completar los productos tensoriales cuando un operador actúa sobre un sitio específico de la cadena de espines.
 
 ```cpp
 #include "pauli.hpp"
@@ -371,7 +373,7 @@ Matriz Pauli::Z(){
 
 
 
-##pauli.hpp
+## pauli.hpp
 
 ```cpp
 
@@ -390,7 +392,7 @@ public:
 ```
 
 
-##rk4.cpp
+## rk4.cpp
 
 ```cpp
 
@@ -433,7 +435,7 @@ Matriz rk4::direct(const Matriz& phi0,int &n,double &t) const{
 }
 ```
 
-##rk4.hpp
+## rk4.hpp
 
 ```cpp
 
