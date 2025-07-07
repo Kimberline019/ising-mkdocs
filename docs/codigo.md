@@ -123,8 +123,8 @@ magnetizaciones = magnetizacion_z(estados, N)
 
 ## Implementación en C++
 
- HEAD
-##Matriz.cpp
+ 
+## Matriz.cpp
 
 Este código implementa una clase Matriz que representa matrices de números complejos y define operaciones fundamentales como suma, multiplicación matricial, multiplicación por escalar y producto tensorial, todas optimizadas con paralelización mediante OpenMP; su propósito dentro del modelo de Ising cuántico unidimensional es facilitar la construcción eficiente del Hamiltoniano a través de productos tensoriales de matrices de Pauli, así como la evolución del estado cuántico mediante multiplicaciones repetidas de matrices durante la integración numérica de la ecuación de Schrödinger.
 
@@ -429,22 +429,54 @@ const Matriz& Hamiltoniano::matriz() const {
 
 
 ```cpp
-#ifndef HAMILTONIANO_HPP
-#define HAMILTONIANO_HPP
+
 #include "Matriz.hpp"
 #include <vector>
 #include <complex>
+/**
+ * @brief Esta clase se encarga de realizar las operaciones necesarias para construir el Hamiltoniano del sistema a partir de los valores datos.
+ *Almacena la matriz del Hamiltoniano y la cantidad de espines del sistema.
+ * 
+ */
 class Hamiltoniano {
 private:
     Matriz H;            
     int N;            
 public:
+    /**
+    * @brief Constructor personalizado que crea una matriz sin inicializar de las dimensiones del Hamiltoniano del sistema.
+    *
+    * Ejemplo de uso:
+    * @code
+    * Hamiltoniano H_(espin);
+    * @endcode
+    */
     Hamiltoniano(int N_);
+    /**
+    * @brief Realiza los productos tensoriales necesarios para crear la matriz del Hamiltoniano del sistema y los almacena en los datos de la instancia.
+    *
+    * Ejemplo de uso:
+    * @code
+    * H_,construir(J,g);
+    * @endcode
+    *
+    * @param J dato de la escala energética de la interacción ferromagnética.
+    * @param g dato del parámetro energético del campo transversal.
+    */
     void construir(double J, double g); 
+        /**
+    * @brief Devuelve el hamiltoniano del que la clase almacena.
+    *
+    * Ejemplo de uso:
+    * @code
+    * H=H_,matriz();
+    * @endcode
+    *
+    * @return Matriz con el hamiltoniano de la clase.
+    */
     const Matriz& matriz() const;
 };
 
-#endif
 ```
 
 ## main.cpp
@@ -549,15 +581,13 @@ Matriz Pauli::Z(){
 #ifndef PAULI_H
 #define PAULI_H
 #include "Matriz.hpp"
-
+/**
+ * @brief Define las matrices de Pauli usando la clase Matriz como constantes para su fácil acceso.
+ *
+ */
 class Pauli {
 public:
     static Matriz I();
-    static Matriz X();
-    static Matriz Z();
-};
-
-#endif
 ```
 
 
@@ -610,23 +640,56 @@ Matriz rk4::direct(const Matriz& phi0,int &n,double &t) const{
 
 ```cpp
 
-#ifndef RK4_HPP
-#define RK4_HPP
-
 #include <vector>
 #include <complex>
 #include "Matriz.hpp"
-
+/**
+ * @brief Almacena los métodos de cálculo para el phi final.
+ *
+ * Sus operadores permiten calcular limpiamente el estado final de phi. Almacena el hamiltoniano del sistema y el tamaño del paso a aplicar.
+ */	
 class rk4 {
 private:
     Matriz H;
     double h;
 public:
+    /**
+     * @brief Constructor personalizado que almacena los datos necesarios para el método numérico.
+     * Ejemplo de uso: 
+     * @code 
+     * rk4 metodo(H,0.001);
+     *  @endcode
+     *
+     * @param &Hamiltoniano El hamiltoniano del sistema.
+     * @param Paso Tamaño del paso que aplicará el método numérico.
+     */
     rk4(const Matriz& Hamiltoniano, double paso);
+        /**
+     * @brief Aplica una iteración del método Runge-Kutta grado 4.
+     * Ejemplo de uso:
+     * @code
+     * Matriz v= metodo.aplicar(phi_0);
+     *  @endcode
+     *
+     * @param &phi0 Matriz con el vector columna que almacena las condiciones de phi antes de la iteración.
+     * @return &phi0 Matriz con el vector columna phi en el tiempo t+h.
+     */
     Matriz aplicar(const Matriz &phi0) const;
-    Matriz direct(const Matriz &phi0, int &n,double &t) const;
-};
+     /**
+     * @brief Calcula mediante series de Taylor el valor de exp(-iHt) y la aplica las condiciones iniciales de phi.
+     * Ejemplo de uso:
+     * @code
+     * Matriz v= metodo.direct(phi_0);
+     *  @endcode
+     *
+     *@param &phi0 Matriz con el vector columna que almacena las condiciones de
+ phi antes de la iteración.
+     *@param &n Entero con el número de términos que se quieren para la expansión de Taylor.
+     *@param &t Tiempo final del sistema.
+     *@return Matriz con el vector columna con los valores finales de phi.
+     *
+     * 
+     */
 
-#endif
 ```
 
