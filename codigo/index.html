@@ -441,6 +441,96 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#implementacion-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementación en C++
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrizcpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrizhpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz.hpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamiltonianocpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      hamiltoniano.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamiltonianohpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      hamiltoniano.hpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maincpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      main.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paulicpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      pauli.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paulihpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      pauli.hpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4cpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      rk4.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4hpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      rk4.hpp
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -593,6 +683,96 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#implementacion-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementación en C++
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrizcpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrizhpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz.hpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamiltonianocpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      hamiltoniano.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamiltonianohpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      hamiltoniano.hpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maincpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      main.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paulicpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      pauli.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paulihpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      pauli.hpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4cpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      rk4.cpp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4hpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      rk4.hpp
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -695,6 +875,301 @@ psi0 = estado_inicial(N)
 tiempos = np.linspace(0, 5, 100)
 estados = evolucion(psi0, H, tiempos)
 magnetizaciones = magnetizacion_z(estados, N)
+</code></pre>
+<h2 id="implementacion-en-c">Implementación en C++<a class="headerlink" href="#implementacion-en-c" title="Permanent link">&para;</a></h2>
+<h2 id="matrizcpp">Matriz.cpp<a class="headerlink" href="#matrizcpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;complex&gt;
+#include &lt;iostream&gt;
+#include &quot;Matriz.hpp&quot;
+#include &lt;omp.h&gt;
+Matriz::Matriz(int filas_,int columnas_): filas(filas_), columnas(columnas_),data(filas*columnas, {0.0,0.0}){}
+Matriz::Matriz(int filas_,int columnas_,const std::vector&lt;std::complex&lt;double&gt;&gt;&amp;valores): filas(filas_),columnas(columnas_), data(valores){}
+Matriz Matriz::operator+(const Matriz &amp;obj) const {
+    Matriz newMatriz(filas,columnas);
+    #pragma omp parallel for
+    for (int i=0; i &lt;filas;++i){
+        for (int j=0; j &lt;columnas;++j){
+        newMatriz(i,j)=(*this)(i,j)+obj(i,j);
+        }
+    }
+    return newMatriz;
+}
+
+int Matriz::sizef() const {
+    return filas;
+}
+int Matriz::sizec() const {
+    return columnas;
+}
+std::complex&lt;double&gt;&amp; Matriz::operator()(int i, int j){
+    return data[i*columnas+j];
+}
+const std::complex&lt;double&gt;&amp; Matriz::operator()(int i, int j) const{
+        return data[i*columnas+j];
+}
+const std::vector&lt;std::complex&lt;double&gt;&gt;&amp; Matriz::datos() const {
+    return data;
+}
+Matriz Matriz::operator*(const Matriz &amp;obj) const{
+     Matriz newMatriz(filas,obj.sizec());
+     #pragma omp parallel for
+     for (int i = 0; i &lt; filas; ++i){
+            for (int j = 0; j &lt; obj.sizec(); ++j){
+                    for (int k = 0; k &lt; columnas; ++k){
+                        newMatriz(i, j) += (*this)(i, k) * obj(k, j);
+            }
+        }
+     }
+         return newMatriz;
+}
+Matriz Matriz::operator*(const std::complex&lt;double&gt;&amp; escalar) const{
+    Matriz newMatriz(filas,columnas);
+    #pragma omp parallel for
+    for (int i=0; i &lt; filas; ++i){
+        for (int j = 0; j &lt; columnas; ++j){
+            newMatriz(i,j)=(*this)(i, j) * escalar;
+        }
+    }
+    return newMatriz;
+}
+Matriz Matriz::tensor(const Matriz &amp;obj) const {
+    int m = filas;
+    int n = columnas;
+    int p = obj.sizef();
+    int q = obj.sizec();
+    Matriz newMatriz(m*p,n*q);
+    #pragma omp parallel for collapse(2)
+    for (int i=0;i&lt;m;++i){
+        for (int j=0;j&lt;n;++j){
+            for (int k=0;k&lt;p;++k){
+                for (int l=0;l&lt;q;++l){
+                    newMatriz(i*p+k,j*q+l)=(*this)(i,j)*obj(k,l);
+                }
+            }
+        }
+    }
+
+    return newMatriz;
+}
+</code></pre>
+<h2 id="matrizhpp">Matriz.hpp<a class="headerlink" href="#matrizhpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">#ifndef MATRIZ_HPP
+#define MATRIZ_HPP
+
+#include &lt;vector&gt;
+#include &lt;complex&gt;
+#include &lt;iostream&gt;
+
+class Matriz {
+    private:
+        int filas, columnas;
+        std::vector&lt;std::complex&lt;double&gt;&gt; data;
+    public:
+        Matriz(int filas, int columnas, const std::vector&lt;std::complex&lt;double&gt;&gt;&amp;valores);
+        Matriz(int filas, int columnas);
+        Matriz operator+(const Matriz &amp;obj) const;
+        Matriz operator*(const Matriz &amp;obj) const;
+        Matriz operator*(const std::complex&lt;double&gt; &amp;escalar) const;
+        Matriz tensor(const Matriz &amp;obj) const;
+        int sizef() const;
+        int sizec() const;
+        std::complex&lt;double&gt;&amp; operator()(int i, int j);
+        const std::complex&lt;double&gt;&amp; operator()(int i, int j) const;
+        const std::vector&lt;std::complex&lt;double&gt;&gt;&amp; datos() const;
+};
+
+#endif
+</code></pre>
+<h2 id="hamiltonianocpp">hamiltoniano.cpp<a class="headerlink" href="#hamiltonianocpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">#include &quot;hamiltoniano.hpp&quot;
+#include &quot;pauli.hpp&quot; 
+#include &lt;iostream&gt;
+
+Hamiltoniano::Hamiltoniano(int N_): N(N_),H(1 &lt;&lt; N_, 1 &lt;&lt; N_) {
+    int dim =1&lt;&lt;N; 
+    H=Matriz(dim, dim);
+}
+void Hamiltoniano::construir(double J, double g) {
+    int dim =1 &lt;&lt;N;
+    H=Matriz(dim,dim);
+    for (int i=0;i&lt;N;++i){
+        int ip =(i+1)%N;
+        Matriz term_zz=Matriz(1,1,{std::complex&lt;double&gt;(1,0)});
+        for (int site=0;site&lt;N;++site){
+            if (site == i)
+                term_zz=term_zz.tensor(Pauli::Z());
+            else if (site==ip)
+                term_zz=term_zz.tensor(Pauli::Z());
+            else
+                term_zz = term_zz.tensor(Pauli::I());
+        }
+        H=H+term_zz*(-J);
+    }
+    for (int i=0;i&lt;N;++i){
+        Matriz term_x=Matriz(1,1,{std::complex&lt;double&gt;(1,0)});
+        for (int site=0;site&lt;N;++site){
+            if (site==i)
+                term_x=term_x.tensor(Pauli::X());
+            else
+                term_x=term_x.tensor(Pauli::I());
+        }
+        H=H+term_x*(-g);
+    }
+}
+
+const Matriz&amp; Hamiltoniano::matriz() const {
+    return H;
+}
+</code></pre>
+<h2 id="hamiltonianohpp">hamiltoniano.hpp<a class="headerlink" href="#hamiltonianohpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">#ifndef HAMILTONIANO_HPP
+#define HAMILTONIANO_HPP
+#include &quot;Matriz.hpp&quot;
+#include &lt;vector&gt;
+#include &lt;complex&gt;
+class Hamiltoniano {
+private:
+    Matriz H;            
+    int N;            
+public:
+    Hamiltoniano(int N_);
+    void construir(double J, double g); 
+    const Matriz&amp; matriz() const;
+};
+
+#endif
+</code></pre>
+<h2 id="maincpp">main.cpp<a class="headerlink" href="#maincpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;complex&gt;
+#include &quot;Matriz.hpp&quot;
+#include &quot;hamiltoniano.hpp&quot;
+#include &quot;rk4.hpp&quot;
+#include &quot;pauli.hpp&quot;
+int main(){
+    double J=1.0;
+    double g=1.0;
+    double tF=2.0;
+    double h=0.0001;
+    int spin = 3;
+    int n=100;
+        int dim = 1 &lt;&lt; spin; 
+    std::vector&lt;std::complex&lt;double&gt;&gt; inicial(dim, {1.0, 0.0});
+    Matriz phi0(dim,1,inicial);
+    Matriz phicopy(dim,1);
+    Hamiltoniano H_(spin);
+    H_.construir(J,g);
+    Matriz H=H_.matriz();
+    rk4 rk4(H,h);
+    double contador=0;
+    while (contador &lt;=tF){
+        phicopy=rk4.aplicar(phi0); 
+        std::cout&lt;&lt;&quot;t = &quot;&lt;&lt; contador&lt;&lt; std::endl;
+        for (int i=0;i&lt; phicopy.sizef();++i){
+                std::cout &lt;&lt; phicopy(i,0)&lt;&lt; std::endl;
+            }
+        std::cout &lt;&lt; std::endl;
+        contador+=h;
+        phi0=phicopy;
+    }
+    phicopy=rk4.direct(phi0,n,tF);
+    for (int i=0;i&lt;phicopy.sizef();++i){
+            std::cout&lt;&lt;phicopy(i,0)&lt;&lt;std::endl;
+        }
+        std::cout &lt;&lt; std::endl;
+
+    return 0;
+    }
+</code></pre>
+<h2 id="paulicpp">pauli.cpp<a class="headerlink" href="#paulicpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">#include &quot;pauli.hpp&quot;
+
+Matriz Pauli::I(){
+    return Matriz(2,2,{std::complex&lt;double&gt;(1,0),std::complex&lt;double&gt;(0,0),std::complex&lt;double&gt;(0,0),std::complex&lt;double&gt;(1,0)});
+}
+Matriz Pauli::X(){
+return Matriz(2,2,{std::complex&lt;double&gt;(0,0),std::complex&lt;double&gt;(1,0),std::complex&lt;double&gt;(1,0),std::complex&lt;double&gt;(0,0)});
+}
+Matriz Pauli::Z(){
+    return Matriz(2,2,{std::complex&lt;double&gt;(1,0),std::complex&lt;double&gt;(0,0),std::complex&lt;double&gt;(0,0),std::complex&lt;double&gt;(-1,0)});
+</code></pre>
+<h2 id="paulihpp">pauli.hpp<a class="headerlink" href="#paulihpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">
+#ifndef PAULI_H
+#define PAULI_H
+#include &quot;Matriz.hpp&quot;
+
+class Pauli {
+public:
+    static Matriz I();
+    static Matriz X();
+    static Matriz Z();
+};
+
+#endif
+</code></pre>
+<h2 id="rk4cpp">rk4.cpp<a class="headerlink" href="#rk4cpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+#include &lt;complex&gt;
+#include &lt;iostream&gt;
+#include &quot;Matriz.hpp&quot;
+#include &quot;rk4.hpp&quot;
+
+rk4::rk4(const Matriz&amp; Hamiltoniano, double paso):H(Hamiltoniano),h(paso) {}
+Matriz rk4::aplicar(const Matriz &amp;phi0) const{
+    std::complex&lt;double&gt; z(0.0, -1.0);
+    std::complex&lt;double&gt; coef= z*h;
+    Matriz k1(phi0.sizef(),1),k2(phi0.sizef(),1),k3(phi0.sizef(),1),k4(phi0.sizef(),1);
+    k1=H*phi0*coef;
+    k2=H*(phi0+k1*0.5)*coef;
+    k3=H*(phi0+k2*0.5)*coef;
+    k4=H*(phi0+k3)*coef;
+    return phi0+(k1+k2*2+k3*2+k4)*(1.0/6.0);
+}
+Matriz rk4::direct(const Matriz&amp; phi0,int &amp;n,double &amp;t) const{
+        std::complex&lt;double&gt; z(0.0, -1.0);
+     Matriz phi1(phi0.sizef(), 1);
+         Matriz identidad(H.sizef(), H.sizec());
+        for (int i = 0; i &lt; H.sizef(); ++i) {
+            identidad(i, i) = {1.0, 0.0};
+        }
+        Matriz suma = identidad;
+        Matriz potenciaH = identidad;
+        std::complex&lt;double&gt; coef = 1.0;  // Coeficiente factorial
+        for (int k=1;k&lt;=n;++k){
+            potenciaH = potenciaH*H;
+            coef /= static_cast&lt;double&gt;(k);
+            suma =suma+potenciaH*(coef*std::pow(z*t,k));
+        }
+
+        phi1 = suma*phi0;
+        return phi1;
+}
+</code></pre>
+<h2 id="rk4hpp">rk4.hpp<a class="headerlink" href="#rk4hpp" title="Permanent link">&para;</a></h2>
+<pre><code class="language-cpp">
+#ifndef RK4_HPP
+#define RK4_HPP
+
+#include &lt;vector&gt;
+#include &lt;complex&gt;
+#include &quot;Matriz.hpp&quot;
+
+class rk4 {
+private:
+    Matriz H;
+    double h;
+public:
+    rk4(const Matriz&amp; Hamiltoniano, double paso);
+    Matriz aplicar(const Matriz &amp;phi0) const;
+    Matriz direct(const Matriz &amp;phi0, int &amp;n,double &amp;t) const;
+};
+
+#endif
 </code></pre>
 
 
