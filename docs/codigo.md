@@ -125,6 +125,8 @@ magnetizaciones = magnetizacion_z(estados, N)
 
 ##Matriz.cpp
 
+Este código implementa una clase Matriz que representa matrices de números complejos y define operaciones fundamentales como suma, multiplicación matricial, multiplicación por escalar y producto tensorial, todas optimizadas con paralelización mediante OpenMP; su propósito dentro del modelo de Ising cuántico unidimensional es facilitar la construcción eficiente del Hamiltoniano a través de productos tensoriales de matrices de Pauli, así como la evolución del estado cuántico mediante multiplicaciones repetidas de matrices durante la integración numérica de la ecuación de Schrödinger.
+
 ```cpp
 #include <vector>
 #include <complex>
