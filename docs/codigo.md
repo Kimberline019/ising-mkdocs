@@ -393,6 +393,7 @@ public:
 
 
 ## rk4.cpp
+El archivo \texttt{rk4.cpp} implementa la clase **rk4**, que permite resolver numéricamente la ecuación de Schrödinger dependiente del tiempo para un sistema cuántico, utilizando dos métodos: el método de Runge-Kutta de cuarto orden y una aproximación directa de la evolución unitaria basada en el desarrollo en serie de Taylor de la exponencial de matrices. El método **aplicar** calcula un paso de evolución temporal aplicando el algoritmo de Runge-Kutta a la función de onda \( |\psi(t)\rangle \), con un paso de tiempo \( h \), usando la matriz Hamiltoniana \( \hat{H} \). Por otro lado, el método **direct** evalúa directamente \( e^{-i\hat{H}t}|\psi(0)\rangle \) truncando la serie de potencias en \( n \) términos, lo cual es útil para validar la precisión del método numérico. Ambas estrategias son fundamentales para estudiar la dinámica del modelo de Ising a partir de un estado inicial.
 
 ```cpp
 
